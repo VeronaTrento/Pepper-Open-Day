@@ -4,12 +4,16 @@
     <BehaviorDescriptions>
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
-    <Dialogs />
+    <Dialogs>
+        <Dialog name="Chat" src="Chat/Chat.dlg" />
+    </Dialogs>
     <Resources>
         <File name="LICENSE" src="LICENSE" />
         <File name="README" src="README.md" />
     </Resources>
-    <Topics />
+    <Topics>
+        <Topic name="Chat_iti" src="Chat/Chat_iti.top" topicName="Chat" language="it_IT" />
+    </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">
         <Translation name="translation_en_US" src="translations/translation_en_US.ts" language="en_US" />
