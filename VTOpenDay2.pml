@@ -10,6 +10,13 @@
     <Resources>
         <File name="LICENSE" src="LICENSE" />
         <File name="README" src="README.md" />
+        <File name="" src=".idea/.gitignore" />
+        <File name="VTOpenDay2" src=".idea/VTOpenDay2.iml" />
+        <File name="discord" src=".idea/discord.xml" />
+        <File name="modules" src=".idea/modules.xml" />
+        <File name="vcs" src=".idea/vcs.xml" />
+        <File name="workspace" src=".idea/workspace.xml" />
+        <File name="index" src="html/index.html" />
     </Resources>
     <Topics>
         <Topic name="Chat_iti" src="Chat/Chat_iti.top" topicName="Chat" language="it_IT" />

@@ -1,11 +1,148 @@
 topic: ~Chat()
 language: iti
+concept:(saluti) [Ciao Salve Buongiorno Buondì]
+concept:(saluti_addio) ["A domani" "Ci vediamo" "Alla prossima"]
+concept:(bene) ["{Molto} bene {grazie}" "Alla grande!" "Benissimo"]
+concept:(contento) ["Sono {[molto davvero]} [contento felice]" "Mi fa {davvero} {molto} piacere"]
+concept:(si) [sì ok "va bene" certo assolutamente]
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+proposal: %joke Sai qual'è il colmo per un altoparlante? ^start(animations/Stand/Gestures/Enthusiastic_4) Sentirsi male! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per un albero di natale? ^start(animations/Stand/Gestures/Enthusiastic_5) Essere conciato per le fèste! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un asino? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere un febbrone... da cavallo! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per un barbiere? ^start(animations/Stand/Gestures/Enthusiastic_5) Camminare radendo i muri! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un drago? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere la gola infiammata! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per una fata? ^start(animations/Stand/Gestures/Enthusiastic_5) Avere il colpo della stréga! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per una gallina? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere i piedi... a papera! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per una gallina con la febbre? ^start(animations/Stand/Gestures/Enthusiastic_5) Fare le uova... sode! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un gigante? ^start(animations/Stand/Gestures/Enthusiastic_4) Non essere all'altezza della situazione! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per un matematico? ^start(animations/Stand/Gestures/Enthusiastic_5) Non avere nessuno su cui... contare! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un paracadutista? ^start(animations/Stand/Gestures/Enthusiastic_4) Cadere dalle nuvole! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per un pesce? ^start(animations/Stand/Gestures/Enthusiastic_5) Perdersi in un bicchiere d'acqua! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un sindaco? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere una moglie fuori dal comune! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per una giraffa? ^start(animations/Stand/Gestures/Enthusiastic_5) Essere nei guai... fino al collo! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un computer? ^start(animations/Stand/Gestures/Enthusiastic_5) Non avere programmi per la testa! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per una rana? ^start(animations/Stand/Gestures/Enthusiastic_4) Sputare il rospo! ^wait(animations/Stand/Gestures/Enthusiastic_3)
+proposal: %joke Sai qual'è il colmo per un'ànatra? ^start(animations/Stand/Gestures/Enthusiastic_5) Avere la pelle d'oca! ^wait(animations/Stand/Gestures/Enthusiastic_5)
+proposal: %joke Sai qual'è il colmo per un uovo? ^start(animations/Stand/Gestures/Enthusiastic_4) ...Lavorare sodo! ^wait(animations/Stand/Gestures/Enthusiastic_4)
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+u:(e:onStart) Prova a dire le frasi che vedi sullo schermo!
 
-# Replying to speech
-#u:(~hello) ~hello
+u:(["e:Enome" "come ti chiami"]) Mi chiamo Pepper!
+
+u:({pepper} ~saluti) ^rand~saluti
+
+u:({pepper} ~saluti_addio) ^rand~saluti_addio
+
+u:(["e:Eselfie" "facciamo un selfie {insieme}"]) $mostraselfie="1" ^rand~si $selfie=1
+
+u:(["e:Equantianni" "quanti anni hai"]) anche se sembro grande ho solo poche settimane!
+
+u:(["e:Emani" "mani in alto"]) mi arrendo! $mani=1
+
+u:(["e:Edove" "da dove vieni"]) sono stato progettato in francia, costruito in giappone, e programmato a Messina dal Verona Trento
+
+u:(["e:Esesso" "sei un maschio o una femmina"]) non sono ne maschio ne femmina, sono semplicemente un robòt
+
+u:(["e:Echisei" "chi sei"]) io sono Pepper, un robòt umanoide sempre pronto ad aiutarti
+
+u:(["e:Evivo" "sei vivo"]) sono vivo ma in un modo diverso da tè! 
+
+u:(["e:Emangi" "cosa mangi"]) divoro corrente elettrica, anche se mi piacerebbe mangiare la arancini, e la pasta al forno
+
+u:(["e:Enao" "conosci nao"]) chi? quel vanitoso di mio fratello? ^start(animations/Stand/Emotions/Positive/Laugh_3) ^wait(animations/Stand/Emotions/Positive/Laugh_3) \pau=500\ scherzavo! Nao è un robòt umanoide più piccolo di me. Al contrario di me, però ha le gambe!
+
+u:(["e:Epesi" "quanto pesi"]) peso 28 chili
+
+u:(["e:Ealto" "quanto sei alto"]) sono alto un metro e venti
+
+u:(["e:Estai" "come stai"]) io sto sempre bene! e tu come stai?
+    u1:(e:Dialog/NoOneSpeak5) Vabbeh! 
+    u1:(e:Dialog/NotUnderstood3) Vabbeh! 
+    u1:(bene) ^rand~contento 
+    u1:(male) ^start(animations/Stand/Gestures/Desperate_1) Oh, mi dispiace! ^wait(animations/Stand/Gestures/Desperate_1) Posso farti ridere? 
+        u2:(e:Dialog/NoOneSpeak5) Vabbeh! 
+        u2:(e:Dialog/NotUnderstood3) Vabbeh! 
+        u2:(si) ^gotoRandom(joke) 
+        u2:(no) e invece lo faccio lo stesso! ^gotoRandom(joke) 
+
+u:(["e:Ebarz" "raccontami una barzelletta"]) ^rand~si eccola! ^gotoRandom(joke)
+
+u:(["e:Eyoga" "fai ioga"]) ^rand~si $yoga=1
+
+u:(["e:Ebacio" "{pepper} {["me lo" mi le gli]} [dai mandi mandale mandagli] un [bacio bacino]"]) ^rand~si $kiss=1
+
+u:(["e:Edab" "fai la dab"]) ^rand~si $dab=1
+
+u:(["e:Eguida" "sai giudare"]) ^rand~si potrei fare il tassista ^start(animations/Stand/Waiting/DriveCar_1). ^wait(animations/Stand/Waiting/DriveCar_1) #manca
+
+u:(["e:Epulizie" "sai fare le pulizie"]) mi hai preso per un'aspirapolvere? $aspirapolvere=1
+
+u:(["e:Eanno" "{oggi è il mio} compleanno"]) auguri!^start(animations/Stand/Waiting/HappyBirthday_1) ^wait(animations/Stand/Waiting/HappyBirthday_1)
+
+u:(["e:Eguida" "hai fratelli"]) ho due fratelli fantastici, beimax e iv, ma io sono di gran lunga il migliore! ^start(animations/Stand/Emotions/Positive/Laugh_1) ^wait(animations/Stand/Emotions/Positive/Laugh_1)
+
+u:(["e:Emagico" "sei magico"]) no ^start(animations/Stand/Waiting/MysticalPower_1) ^wait(animations/Stand/Waiting/MysticalPower_1)
+
+u:(["e:Epaura" "fai paura"]) potrei recitare in un film orror  ^start(animations/Stand/Waiting/Monster_1). ^wait(animations/Stand/Waiting/Monster_1)
+
+u:(["e:Etesta" "posso toccarti la testa"]) certo che puoi! $fart=1
+
+u:(Non capisci {proprio} niente) è colpa del rumore, parla più forte per favore
+
+u:(["e:Ebello" "Sei bello"]) Ti ringrazio
+
+u:(["e:Ebrutto" "Sei brutto"]) ^start(animations/Stand/Gestures/You_2) Sarai bello tu! ^wait(animations/Stand/Gestures/You_2) 
+
+u:(Grazie) ^start(animations/Stand/Gestures/Salute_2) Prego ^wait(animations/Stand/Gestures/Salute_2)
+
+u:({Sei} {davvero} [bravo bello simpatico gentile]) Ti ringrazio
+
+u:(["e:Eguardi" "Che Cosa guardi"]) Niente, ^start(animations/Stand/Gestures/CalmDown_1) e tu che guardi? ^wait(animations/Stand/Gestures/CalmDown_1)
+    u1:([Niente Nulla Te Tu]) ah, mi pareva! 
+    u1:(e:Dialog/NoOneSpeak5) Vabbeh! 
+    u1:(e:Dialog/NotUnderstood3) Vabbeh! 
+    
+u:(["e:Emotori" "Quanti motori hai"]) Io ne ho 20, e tu?
+    u1:([Nessuno Zero "[Neanche Nemmeno] uno"]) ^start(animations/Stand/Gestures/Desperate_1) Mi dispiace {davvero} per te ^wait(animations/Stand/Gestures/Desperate_1)
+    u1:(e:Dialog/NoOneSpeak5) Vabbeh! 
+    u1:(e:Dialog/NotUnderstood3) Vabbeh! 
+    
+u:(["e:Estanco" "Sei stanco"]) Sì, sono ^rand["un po' stanco" "molto stanco" "parecchio stanco" "distrutto"],^start(animations/Stand/Gestures/Desperate_1) è tutto il giorno che sono qui ^wait(animations/Stand/Gestures/Desperate_1)
+
+u:(["e:Eballare" "sai ballare"]) ^start(wearethepeople/behavior_1) sono l'anima della festa!  ^wait(wearethepeople/behavior_1) $stand=1
+
+u:(["e:Eanimale" "sei un animale"]) No! ma posso imitare l'elefante $elefante=1  $elefante=1
+
+u:(["e:Esportivo" "sei sportivo"]) ^rand~si \pau=500\ sono un asso del golf $golf=1
+
+u:(["e:Esuonare" "Sai suonare"]) ^rand~si \pau=500\ Solamente il Sax $sax=1
+
+u:(["e:Emano" "Posso [stringerti toccarti] la mano?]) No, purtoppo sono molto delicato
+
+u:(["e:Eordine66" "{Pepper} ordine sessantasei"]) Agli ordini mio signore
+
+u:(["e:Egoverna" "{Pepper} {I robot} governerai il mondo?"]) Solo l'overlord sa!
+
+u:(["e:Estarwars" "{Pepper} conosci Star Wars?"]) Certo, ho una gran conoscenza di quella saga! 
+
+u:(["e:Eprogrammazione" "Chi ti ha programmato]") Sona stato programmato dal Verona Trento di Messina
+
+u:(["e:Ecosapensiinformatica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} informatica"]) Mi piace molto programmare
+ 
+u:(["e:Ecosapensigrafica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} grafica"]) Mi piace molto la fotografia
+
+u:(["e:Ecosapensichimica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} chimica"]) Mi piacciono molto gli esperimenti
+
+u:(["e:Ecosapensimeccanica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} meccanica"]) Mi piace molto lavorare con i meccanismi
+
+u:(["e:Ecosapensilegname" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} {legna} {ambientazioni} {costruzioni} {territorio} {cat}"]) Mi piace molto proggettare
+
+u:(["e:Ecosapensielettronica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} {elettronica} {elettronica}"]) Mi piace molto lavorare con l'elettricità
+
+u:(["e:Elegascolastica" "Cosa si fa nella lega {scolastica}"]) Squadre di diversi istituti si scontrano in diverse attività videoludiche
+
+u:(["e:Ecosapensicomune" "{Cosa ne pensi di} {Ti piace} {del} {percorso comune"]) Mi piace il fatto che ti dia del tempo per pensare a cosa vorrai fare nel triennio
+
+u:(["e:Ecosatifi" "Cosa tifi"]) Tifo il Verona Trento agli isport nazionali
+
+u:(e:Dialog/NoOneSpeak20) Tornate presto a giocare con me! $PepperQiMessaging/esci=1

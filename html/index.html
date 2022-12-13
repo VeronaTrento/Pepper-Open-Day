@@ -2,14 +2,183 @@
 <html lang="it">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="initial-scale = 1.333,
-	minimum-scale = 1.333,
-	maximum-scale = 1.333" />
-    <title>OpenDay</title>
+    <meta name="viewport" content="initial-scale = 1.333, minimum-scale = 1.333, maximum-scale = 1.333"/>
+    <title>Index</title>
+    <link href="assets/css/font.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type='application/javascript' src='assets/js/fastclick.js'></script>
+    <script src="assets/js/jquery-3.1.0.min.js"></script>
     <script src="/libs/qi/2/qi.js"></script>
+    <script src="/libs/qimessaging/2/qimessaging.js"></script>
+    <!--script type="text/javascript" src="assets/js/script.js"></script-->
+
+    <script>
+        var memory;
+        var tts;
+
+        try {
+            QiSession( function (session) {
+                console.log('connected!');
+
+                session.service("ALMemory").then(function (ALMemory) {
+                    memory = ALMemory;
+                    console.log(memory);
+                    session.service("ALAnimatedSpeech").then(function (ALAnimatedSpeech){
+                        tts = ALAnimatedSpeech;
+                        console.log("tts ready");
+                    });
+                    this.subscribeEvents();
+                    console.log("raised controlReady");
+                });
+                reset();
+            });
+        } catch (err) {
+            console.log("Error when initializing QiSession: " + err.message);
+            console.log("Make sure you load this page from the robots server.")
+        }
+
+        function reset() {
+            console.log("Reset");
+            showOnly("startup");
+            memory.raiseEvent("PepperQiMessaging/reset", "reset");
+        }
+
+        function hide(id) {
+            $("#" + id).hide()
+        }
+
+        function show(id) {
+            $("#" + id).show()
+        }
+
+        function hideAll() {
+            $(".sub-content").hide();
+        }
+
+        function showOnly(id) {
+            hideAll();
+            show(id);
+        }
+
+        function selfie() {
+            showOnly("selfie");
+            memory.raiseEvent("PepperQiMessaging/reset", "reset");
+        }
+
+        function start() {
+            showOnly("choose");
+            memory.raiseEvent("PepperQiMessaging/start", "start");
+        }
+
+        function choose(id, event) {
+            showOnly(id);
+            memory.raiseEvent(event, event);
+        }
+
+        function subscribeEvents() {
+            this.memory.subscriber("show").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly(state);
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETBiennio").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("biennio");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETExtra").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("extra");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETChimica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("chimica");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETCostruzioni").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("cat");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETElettronica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("eea");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETGrafica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("grafica");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETInformatica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("informatica");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETMeccanica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("mme");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETMElettrica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("ma");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETMMeccanica").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("mm");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETBack").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("choose");
+                });
+            });
+            this.memory.subscriber("PepperQiMessaging/ETStart").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    start();
+                });
+            });
+        }
+    </script>
+
+    <script>
+
+        $(function () {
+            FastClick.attach(document.body);
+        });
+
+    </script>
 
 </head>
-    <body>
-    </body>
+<body>
+<div id="banner">
+    <table>
+        <tbody>
+        <tr>
+            <td id="banner-logo"><img src="assets/img/logo_white.png" alt="logo" onclick="reset();"></td>
+            <td id="banner-name"><span onclick="selfie();">IIS 'Verona Trento' Majorana - Messina</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div id="startup" class="centered sub-content">
+    <h1>Ciao, sono Pepper</h1>
+    <h1>Ti dò il benvenuto al Verona Trento!</h1>
+    <div id="startup-button">
+        <button class="button-startup right" role="button" onclick="start();"><span id="startup-button-text">Iniziamo?</span></button>
+    </div>
+
+</div>
+
+
+<div id="selfie" class="sub-content text-centered">
+    <img src="assets/img/logo_blue.png" alt="logo"/>
+</div>
+
+</body>
 </html>
