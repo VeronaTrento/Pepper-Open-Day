@@ -28,6 +28,10 @@ h1 {
 .centered {
     padding-top: 10px;
     margin: 0 auto;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 25px;
+    color:#193c4e;
 }
 
 .text-centered {
@@ -139,265 +143,6 @@ h1 {
     box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
 
-/* Choose */
-#choose {
-    height: 90vh;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 16.5px;
-    font-weight: 750;
-}
-
-#choose table {
-    table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-sizing: content-box;
-    text-indent: initial;
-    width: 100%;
-    height: 90vh;
-}
-
-#choose td {
-    overflow: hidden;
-    background-image: url("../img/placeholder.jpg");
-    background-size: cover;
-    background-position-y: bottom;
-    background-position-x: center;
-    vertical-align: bottom;
-    text-align: left;
-}
-
-.choose-text {
-    border-left: 10px solid transparent;
-    border-bottom: 15px solid transparent;
-    display: inline-block;
-    background-image: url("../img/trasparency.png");
-    background-size: cover;
-    padding-right: 150%;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin-bottom: -1px;
-    height: 60px;
-    color: black;
-}
-
-.one-word-per-line {
-    width: min-intrinsic;
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
-    display: table-caption;
-    display: -ms-grid;
-    -ms-grid-columns: min-content;
-}
-
-.transparent {
-    width: 100%;
-    height: 100px;
-    position: center;
-}
-
-#table-biennio {
-    background-image: url("../img/biennio.jpg") !important;
-}
-
-#table-pcto {
-    background-image: url("../img/extra.jpg") !important;
-    background-position-x: -10px !important;
-}
-
-#table-chimica {
-    background-image: url("../img/chimica.jpg") !important;
-}
-
-#table-cat {
-    background-image: url("../img/cat.jpg") !important;
-}
-
-#table-eea {
-    background-image: url("../img/eea.jpg") !important;
-}
-
-#table-grafica {
-    background-image: url("../img/grafica.jpg") !important;
-}
-
-#table-mme {
-    background-image: url("../img/mme.png") !important;
-}
-
-#table-informatica {
-    background-image: url("../img/informatica.jpg") !important;
-}
-
-#table-ma {
-    background-image: url("../img/ma.png") !important;
-}
-
-#table-mm {
-    background-image: url("../img/mm.jpg") !important;
-}
-
-/* Biennio */
-
-#biennio {
-    height: 90vh;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 750;
-}
-
-#biennio-table {
-    table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-sizing: content-box;
-    text-indent: initial;
-    width: 100%;
-    height: 90vh;
-}
-
-#biennio-title {
-    height: 11%;
-    text-align: center;
-    vertical-align: bottom;
-}
-
-.orario-table {
-    font-size: 13px;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-}
-.orario-table td {
-    border: 1px solid DodgerBlue;
-    text-align: center;
-    padding-right: 4px;
-    padding-left: 4px;
-}
-.orario-table tr td:first-child, th:first-child{
-    border-left: none;
-    padding-right: 30px;
-    text-align: left;
-}
-.orario-table tr:first-child th{
-    border-top: none;
-}
-.orario-table tr td:last-child, th:last-child{
-    border-right: none;
-}
-.orario-table tr:last-child td{
-    border-bottom: none;
-}
-
-/* Extra */
-#extra {
-    height: 90vh;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 16.5px;
-    font-weight: 750;
-}
-
-#extra table {
-    table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-sizing: content-box;
-    text-indent: initial;
-    width: 100%;
-    height: 90vh;
-}
-
-.reduce {
-    max-width: 70%;
-    height: auto;
-}
-
-.extra-images {
-    background-color: #8ec2ee;
-    width: 25%;
-    padding-right: 10px;
-}
-.extra-images img {
-    margin-bottom: 20px;
-}
-
-/* Details */
-.detail-image {
-    width: 50%;
-    background-size: cover;
-    background-position: center;
-}
-
-.detail-description {
-    width: 50%;
-}
-.detail-description img {
-    width: 100%;
-    crop: auto;
-}
-
-.detail {
-    height: 90vh;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 750;
-}
-
-.detail table {
-    table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-sizing: content-box;
-    text-indent: initial;
-    width: 100%;
-    height: 90vh;
-}
-
-
-#chimica .detail-image {
-    background-image: url("../img/chimica.jpg");
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-}
-
-#cat .detail-image {
-    background-image: url("../img/cat.jpg");
-}
-
-#eea .detail-image {
-    background-image: url("../img/eea.jpg");
-}
-
-#grafica .detail-image {
-    background-image: url("../img/grafica.jpg");
-}
-
-#mme .detail-image {
-    background-image: url("../img/mme.png");
-}
-
-#informatica .detail-image {
-    background-image: url("../img/informatica.jpg");
-}
-
-#ma .detail-image {
-    background-image: url("../img/ma.png");
-}
-
-#mm .detail-image {
-    background-image: url("../img/mm.jpg");
-}
-
 /* Selfie */
 
 #selfie img {
@@ -412,4 +157,13 @@ h1 {
     bottom: 10px;
     left: 10px;
     height: 60px;
+}
+
+.message {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 43px;
 }

@@ -37,8 +37,6 @@ u:(["e:Eselfie" "facciamo un selfie {insieme}"]) $mostraselfie="1" ^rand~si $sel
 
 u:(["e:Equantianni" "quanti anni hai"]) anche se sembro grande ho solo poche settimane!
 
-u:(["e:Emani" "mani in alto"]) mi arrendo! $mani=1
-
 u:(["e:Edove" "da dove vieni"]) sono stato progettato in francia, costruito in giappone, e programmato a Messina dal Verona Trento
 
 u:(["e:Esesso" "sei un maschio o una femmina"]) non sono ne maschio ne femmina, sono semplicemente un robòt
@@ -73,9 +71,9 @@ u:(["e:Ebacio" "{pepper} {["me lo" mi le gli]} [dai mandi mandale mandagli] un [
 
 u:(["e:Edab" "fai la dab"]) ^rand~si $dab=1
 
-u:(["e:Eguida" "sai giudare"]) ^rand~si potrei fare il tassista ^start(animations/Stand/Waiting/DriveCar_1). ^wait(animations/Stand/Waiting/DriveCar_1) #manca
+u:(["e:Eguida" "sai giudare"]) ^rand~si potrei fare il tassista ^start(animations/Stand/Waiting/DriveCar_1). ^wait(animations/Stand/Waiting/DriveCar_1)
 
-u:(["e:Epulizie" "sai fare le pulizie"]) mi hai preso per un'aspirapolvere? $aspirapolvere=1
+u:(["e:Epulizie" "sai fare le pulizie"]) mi hai preso per un'aspirapòlvere? $aspirapolvere=1
 
 u:(["e:Eanno" "{oggi è il mio} compleanno"]) auguri!^start(animations/Stand/Waiting/HappyBirthday_1) ^wait(animations/Stand/Waiting/HappyBirthday_1)
 
@@ -84,8 +82,6 @@ u:(["e:Eguida" "hai fratelli"]) ho due fratelli fantastici, beimax e iv, ma io s
 u:(["e:Emagico" "sei magico"]) no ^start(animations/Stand/Waiting/MysticalPower_1) ^wait(animations/Stand/Waiting/MysticalPower_1)
 
 u:(["e:Epaura" "fai paura"]) potrei recitare in un film orror  ^start(animations/Stand/Waiting/Monster_1). ^wait(animations/Stand/Waiting/Monster_1)
-
-u:(["e:Etesta" "posso toccarti la testa"]) certo che puoi! $fart=1
 
 u:(Non capisci {proprio} niente) è colpa del rumore, parla più forte per favore
 
@@ -109,15 +105,11 @@ u:(["e:Emotori" "Quanti motori hai"]) Io ne ho 20, e tu?
     
 u:(["e:Estanco" "Sei stanco"]) Sì, sono ^rand["un po' stanco" "molto stanco" "parecchio stanco" "distrutto"],^start(animations/Stand/Gestures/Desperate_1) è tutto il giorno che sono qui ^wait(animations/Stand/Gestures/Desperate_1)
 
-u:(["e:Eballare" "sai ballare"]) ^start(wearethepeople/behavior_1) sono l'anima della festa!  ^wait(wearethepeople/behavior_1) $stand=1
-
 u:(["e:Eanimale" "sei un animale"]) No! ma posso imitare l'elefante $elefante=1  $elefante=1
 
 u:(["e:Esportivo" "sei sportivo"]) ^rand~si \pau=500\ sono un asso del golf $golf=1
 
 u:(["e:Esuonare" "Sai suonare"]) ^rand~si \pau=500\ Solamente il Sax $sax=1
-
-u:(["e:Emano" "Posso [stringerti toccarti] la mano?]) No, purtoppo sono molto delicato
 
 u:(["e:Eordine66" "{Pepper} ordine sessantasei"]) Agli ordini mio signore
 
@@ -125,7 +117,7 @@ u:(["e:Egoverna" "{Pepper} {I robot} governerai il mondo?"]) Solo l'overlord sa!
 
 u:(["e:Estarwars" "{Pepper} conosci Star Wars?"]) Certo, ho una gran conoscenza di quella saga! 
 
-u:(["e:Eprogrammazione" "Chi ti ha programmato]") Sona stato programmato dal Verona Trento di Messina
+u:(["e:Eprogrammazione" "Chi ti ha programmato"]) Sona stato programmato dal Verona Trento di Messina
 
 u:(["e:Ecosapensiinformatica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} informatica"]) Mi piace molto programmare
  
@@ -141,8 +133,8 @@ u:(["e:Ecosapensielettronica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} {e
 
 u:(["e:Elegascolastica" "Cosa si fa nella lega {scolastica}"]) Squadre di diversi istituti si scontrano in diverse attività videoludiche
 
-u:(["e:Ecosapensicomune" "{Cosa ne pensi di} {Ti piace} {del} {percorso comune"]) Mi piace il fatto che ti dia del tempo per pensare a cosa vorrai fare nel triennio
+u:(["e:Ecosapensicomune" "{Cosa ne pensi di} {Ti piace} {del} percorso comune"]) Mi piace il fatto che ti dia del tempo per pensare a cosa vorrai fare nel triennio
 
 u:(["e:Ecosatifi" "Cosa tifi"]) Tifo il Verona Trento agli isport nazionali
 
-u:(e:Dialog/NoOneSpeak20) Tornate presto a giocare con me! $PepperQiMessaging/esci=1
+u:(e:Dialog/NoOneSpeak20) Tornate presto a giocare con me! $esci=1

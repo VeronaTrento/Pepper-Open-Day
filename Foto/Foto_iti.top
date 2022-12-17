@@ -1,0 +1,15 @@
+topic: ~Foto()
+language: iti
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
+u:(["si" "ok" "scattata" "fatto" "certo"]) siamo rimasti benissimo!$nascondiselfie=1 $si=1
+u:(no) ^mode(disabled) allora aspetto ancora un po $no=1 ^mode(enabled)
+u:(e:onStart) ^mode(disabled) hai scattato la foto?
+u:(e:Dialog/NoOneSpeak15) ^mode(disabled) hai scattato la foto?

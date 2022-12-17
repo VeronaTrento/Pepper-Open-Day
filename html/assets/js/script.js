@@ -22,10 +22,67 @@ try {
   console.log("Make sure you load this page from the robots server.")
 }
 
+const messages = [
+  {
+    "event": "Evento",
+    "message": "Messaggio1"
+  },
+  {
+    "event": "Evento",
+    "message": "Messaggio2"
+  },
+  {
+    "event": "Evento",
+    "message": "Messaggio3"
+  },
+  {
+    "event": "Evento",
+    "message": "Messaggio4"
+  },
+  {
+    "event": "Evento",
+    "message": "Messaggio5"
+  },
+  {
+    "event": "Evento",
+    "message": "Messaggio6"
+  },
+]
+
+
+let index = 0;
+
+$(document).ready(function(){
+  $("#mess-1").delay(1500).fadeOut(function() {
+    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+  });
+  $("#mess-2").delay(1000).fadeOut(function() {
+    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+  });
+  $("#mess-3").delay(500).fadeOut(function() {
+    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+  });
+  setInterval(function() {
+    $("#mess-1").delay(1500).fadeOut(function() {
+      $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+    });
+    $("#mess-2").delay(1000).fadeOut(function() {
+      $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+    });
+    $("#mess-3").delay(500).fadeOut(function() {
+      $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+    });
+    index = index+3;
+    if(index+2 > messages.length) {
+      index = 0;
+    }
+  }, 10000);
+});
+
 function reset() {
   console.log("Reset");
   showOnly("startup");
-  memory.raiseEvent("PepperQiMessaging/reset", "reset");
+  raiseEvent("reset");
 }
 
 function hide(id) {
@@ -45,81 +102,19 @@ function showOnly(id) {
   show(id);
 }
 
-function selfie() {
-  showOnly("selfie");
-  memory.raiseEvent("PepperQiMessaging/reset", "reset");
-}
-
 function start() {
-  showOnly("choose");
-  memory.raiseEvent("PepperQiMessaging/start", "start");
-}
-
-function choose(id, event) {
-  showOnly(id);
-  tts.stopAll();
-  memory.raiseEvent(event, event);
+  showOnly("messages");
+  raiseEvent("start");
 }
 
 function subscribeEvents() {
-  this.memory.subscriber("show").then(function (subscriber) {
+  this.memory.subscriber("PepperQiMessaging/selfie").then(function (subscriber) {
     subscriber.signal.connect(function (state) {
-      showOnly(state);
+      showOnly("selfie");
     });
   });
-  this.memory.subscriber("PepperQiMessaging/ETBiennio").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("biennio");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETExtra").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("extra");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETChimica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("chimica");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETCostruzioni").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("cat");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETElettronica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("eea");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETGrafica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("grafica");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETInformatica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("informatica");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETMeccanica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("mme");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETMElettrica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("me");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETMMeccanica").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      showOnly("mm");
-    });
-  });
-  this.memory.subscriber("PepperQiMessaging/ETStart").then(function (subscriber) {
-    subscriber.signal.connect(function (state) {
-      start();
-    });
-  });
+}
+
+function raiseEvent(event) {
+  memory.raiseEvent("PepperQiMessaging/" + event, "1");
 }

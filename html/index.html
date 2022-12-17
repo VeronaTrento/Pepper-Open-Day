@@ -6,10 +6,9 @@
     <title>Index</title>
     <link href="assets/css/font.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type='application/javascript' src='assets/js/fastclick.js'></script>
-    <script src="assets/js/jquery-3.1.0.min.js"></script>
     <script src="/libs/qi/2/qi.js"></script>
-    <script src="/libs/qimessaging/2/qimessaging.js"></script>
+    <script type='application/javascript' src='assets/js/fastclick.js'></script>
+    <script type="text/javascript" src="assets/js/jquery-3.1.0.min.js"></script>
     <!--script type="text/javascript" src="assets/js/script.js"></script-->
 
     <script>
@@ -37,10 +36,67 @@
             console.log("Make sure you load this page from the robots server.")
         }
 
+        const messages = [
+            {
+                "event": "Evento",
+                "message": "Messaggio1"
+            },
+            {
+                "event": "Evento",
+                "message": "Messaggio2"
+            },
+            {
+                "event": "Evento",
+                "message": "Messaggio3"
+            },
+            {
+                "event": "Evento",
+                "message": "Messaggio4"
+            },
+            {
+                "event": "Evento",
+                "message": "Messaggio5"
+            },
+            {
+                "event": "Evento",
+                "message": "Messaggio6"
+            },
+        ]
+
+
+        let index = 0;
+
+        $(document).ready(function(){
+            $("#mess-1").delay(1500).fadeOut(function() {
+                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+            });
+            $("#mess-2").delay(1000).fadeOut(function() {
+                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+            });
+            $("#mess-3").delay(500).fadeOut(function() {
+                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+            });
+            setInterval(function() {
+                $("#mess-1").delay(1500).fadeOut(function() {
+                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+                });
+                $("#mess-2").delay(1000).fadeOut(function() {
+                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+                });
+                $("#mess-3").delay(500).fadeOut(function() {
+                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+                });
+                index = index+3;
+                if(index+2 > messages.length) {
+                    index = 0;
+                }
+            }, 10000);
+        });
+
         function reset() {
             console.log("Reset");
             showOnly("startup");
-            memory.raiseEvent("PepperQiMessaging/reset", "reset");
+            raiseEvent("reset");
         }
 
         function hide(id) {
@@ -60,87 +116,21 @@
             show(id);
         }
 
-        function selfie() {
-            showOnly("selfie");
-            memory.raiseEvent("PepperQiMessaging/reset", "reset");
-        }
-
         function start() {
-            showOnly("choose");
-            memory.raiseEvent("PepperQiMessaging/start", "start");
-        }
-
-        function choose(id, event) {
-            showOnly(id);
-            memory.raiseEvent(event, event);
+            showOnly("messages");
+            raiseEvent("start");
         }
 
         function subscribeEvents() {
-            this.memory.subscriber("show").then(function (subscriber) {
+            this.memory.subscriber("selfie").then(function (subscriber) {
                 subscriber.signal.connect(function (state) {
-                    showOnly(state);
+                    showOnly("selfie");
                 });
             });
-            this.memory.subscriber("PepperQiMessaging/ETBiennio").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("biennio");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETExtra").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("extra");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETChimica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("chimica");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETCostruzioni").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("cat");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETElettronica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("eea");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETGrafica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("grafica");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETInformatica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("informatica");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETMeccanica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("mme");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETMElettrica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("ma");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETMMeccanica").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("mm");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETBack").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    showOnly("choose");
-                });
-            });
-            this.memory.subscriber("PepperQiMessaging/ETStart").then(function (subscriber) {
-                subscriber.signal.connect(function (state) {
-                    start();
-                });
-            });
+        }
+
+        function raiseEvent(event) {
+            memory.raiseEvent("PepperQiMessaging/" + event, "1");
         }
     </script>
 
@@ -159,7 +149,7 @@
         <tbody>
         <tr>
             <td id="banner-logo"><img src="assets/img/logo_white.png" alt="logo" onclick="reset();"></td>
-            <td id="banner-name"><span onclick="selfie();">IIS 'Verona Trento' Majorana - Messina</span></td>
+            <td id="banner-name"><span onclick="showOnly('selfie');">IIS 'Verona Trento' Majorana - Messina</span></td>
         </tr>
         </tbody>
     </table>
@@ -170,15 +160,25 @@
     <h1>Ciao, sono Pepper</h1>
     <h1>Ti dò il benvenuto al Verona Trento!</h1>
     <div id="startup-button">
-        <button class="button-startup right" role="button" onclick="start();"><span id="startup-button-text">Iniziamo?</span></button>
+        <button id="button-startup" class="button-startup right" role="button" onclick="start();"><span id="startup-button-text">Iniziamo?</span></button>
     </div>
 
 </div>
 
+<div class="centered sub-content" id="messages" style="display:none;">
+    <p><b>PROVA A CHIEDERMI...</b></p>
+    <br>
+    <div id="mess-1" class="message"></div>
+    <br>
 
-<div id="selfie" class="sub-content text-centered">
-    <img src="assets/img/logo_blue.png" alt="logo"/>
+    <div id="mess-2" class="message"></div>
+    <br>
+
+    <div id="mess-3" class="message"></div>
 </div>
 
+<div id="selfie" class="sub-content text-centered" style="display:none;">
+    <img src="assets/img/logo_blue.png" alt="logo"/>
+</div>
 </body>
 </html>
