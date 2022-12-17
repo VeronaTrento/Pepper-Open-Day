@@ -36,55 +36,78 @@
             console.log("Make sure you load this page from the robots server.")
         }
 
-        const messages = [
+        var messages = [
             {
-                "event": "Evento",
-                "message": "Messaggio1"
+                "event": "Enome",
+                "message": "Come ti chiami?"
             },
             {
-                "event": "Evento",
-                "message": "Messaggio2"
+                "event": "Eselfie",
+                "message": "Ci facciamo un selfie?"
             },
             {
-                "event": "Evento",
-                "message": "Messaggio3"
+                "event": "Edove",
+                "message": "Da dove vieni?"
             },
             {
-                "event": "Evento",
-                "message": "Messaggio4"
+                "event": "Esesso",
+                "message": "Sei maschio o femmina?"
             },
             {
-                "event": "Evento",
-                "message": "Messaggio5"
+                "event": "Echisei",
+                "message": "Chi sei?"
             },
             {
-                "event": "Evento",
-                "message": "Messaggio6"
+                "event": "Emangi",
+                "message": "Cosa mangi?"
             },
-        ]
+            {
+                "event": "Epesi",
+                "message": "Quanto pesi?"
+            },
+            {
+                "event": "Estai",
+                "message": "Come stai?"
+            },
+            {
+                "event": "Ebarz",
+                "message": "Raccontami una barzelletta"
+            },
+            {
+                "event": "Eguardi",
+                "message": "Cosa guardi?"
+            },
+            {
+                "event": "Estanco",
+                "message": "Sei stanco?"
+            },
+            {
+                "event": "Eprogrammazione",
+                "message": "Chi ti ha programmato?"
+            },
+        ];
 
-
-        let index = 0;
+        var index = 0;
 
         $(document).ready(function(){
             $("#mess-1").delay(1500).fadeOut(function() {
-                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+                $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
             });
             $("#mess-2").delay(1000).fadeOut(function() {
-                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+                $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
             });
             $("#mess-3").delay(500).fadeOut(function() {
-                $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+                $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
             });
             setInterval(function() {
                 $("#mess-1").delay(1500).fadeOut(function() {
-                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
+                    $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index].event}\',\'\');\">${messages[index].message}</span>`).delay(500).fadeIn();
                 });
                 $("#mess-2").delay(1000).fadeOut(function() {
-                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
+                    $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index+1].event}\',\'\');\">${messages[index+1].message}</span>`).delay(1500).fadeIn();
                 });
                 $("#mess-3").delay(500).fadeOut(function() {
-                    $(this).html(`<span onclick=\"raiseEvent(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
+                    $(this).html(`<span onclick=\"raiseEventMessage(\'${messages[index+2].event}\',\'\');\">${messages[index+2].message}</span>`).delay(2500).fadeIn();
                 });
                 index = index+3;
                 if(index+2 > messages.length) {
@@ -132,6 +155,10 @@
         function raiseEvent(event) {
             memory.raiseEvent("PepperQiMessaging/" + event, "1");
         }
+
+        function raiseEventMessage(event) {
+            memory.raiseEvent(event, "1");
+        }
     </script>
 
     <script>
@@ -141,7 +168,6 @@
         });
 
     </script>
-
 </head>
 <body>
 <div id="banner">

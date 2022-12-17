@@ -45,7 +45,7 @@ u:(["e:Echisei" "chi sei"]) io sono Pepper, un robòt umanoide sempre pronto ad 
 
 u:(["e:Evivo" "sei vivo"]) sono vivo ma in un modo diverso da tè! 
 
-u:(["e:Emangi" "cosa mangi"]) divoro corrente elettrica, anche se mi piacerebbe mangiare la arancini, e la pasta al forno
+u:(["e:Emangi" "cosa mangi"]) divoro corrente elettrica, anche se mi piacerebbe mangiare gli arancini, e la pasta al forno
 
 u:(["e:Enao" "conosci nao"]) chi? quel vanitoso di mio fratello? ^start(animations/Stand/Emotions/Positive/Laugh_3) ^wait(animations/Stand/Emotions/Positive/Laugh_3) \pau=500\ scherzavo! Nao è un robòt umanoide più piccolo di me. Al contrario di me, però ha le gambe!
 
