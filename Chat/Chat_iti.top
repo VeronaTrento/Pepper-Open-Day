@@ -12,7 +12,7 @@ proposal: %joke Sai qual'è il colmo per un asino? ^start(animations/Stand/Gestu
 proposal: %joke Sai qual'è il colmo per un barbiere? ^start(animations/Stand/Gestures/Enthusiastic_5) Camminare radendo i muri! ^wait(animations/Stand/Gestures/Enthusiastic_5)
 proposal: %joke Sai qual'è il colmo per un drago? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere la gola infiammata! ^wait(animations/Stand/Gestures/Enthusiastic_4)
 proposal: %joke Sai qual'è il colmo per una fata? ^start(animations/Stand/Gestures/Enthusiastic_5) Avere il colpo della stréga! ^wait(animations/Stand/Gestures/Enthusiastic_5)
-proposal: %joke Sai qual'è il colmo per una gallina? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere i piedi... a papera! ^wait(animations/Stand/Gestures/Enthusiastic_4)
+proposal: %joke Sai qual'è il colmo per una gallina? ^start(animations/Stand/Gestures/Enthusiastic_4) Avere i piedi... a pàpera! ^wait(animations/Stand/Gestures/Enthusiastic_4)
 proposal: %joke Sai qual'è il colmo per una gallina con la febbre? ^start(animations/Stand/Gestures/Enthusiastic_5) Fare le uova... sode! ^wait(animations/Stand/Gestures/Enthusiastic_5)
 proposal: %joke Sai qual'è il colmo per un gigante? ^start(animations/Stand/Gestures/Enthusiastic_4) Non essere all'altezza della situazione! ^wait(animations/Stand/Gestures/Enthusiastic_4)
 proposal: %joke Sai qual'è il colmo per un matematico? ^start(animations/Stand/Gestures/Enthusiastic_5) Non avere nessuno su cui... contare! ^wait(animations/Stand/Gestures/Enthusiastic_5)
@@ -27,7 +27,7 @@ proposal: %joke Sai qual'è il colmo per un uovo? ^start(animations/Stand/Gestur
 
 u:(e:onStart) Prova a dire le frasi che vedi sullo schermo!
 
-u:(["e:Enome" "come ti chiami"]) Mi chiamo Pepper!
+u:(["e:Enome" "come ti chiami"]) Mi chiamo Peppper!
 
 u:({pepper} ~saluti) ^rand~saluti
 
@@ -39,7 +39,7 @@ u:(["e:Equantianni" "quanti anni hai"]) anche se sembro grande ho solo poche set
 
 u:(["e:Edove" "da dove vieni"]) sono stato progettato in francia, costruito in giappone, e programmato a Messina dal Verona Trento
 
-u:(["e:Esesso" "sei un maschio o una femmina"]) non sono ne maschio ne femmina, sono semplicemente un robòt
+u:(["e:Esesso" "sei {un} maschio {o} {una} femmina"]) non sono ne maschio ne femmina, sono semplicemente un robòt
 
 u:(["e:Echisei" "chi sei"]) io sono Pepper, un robòt umanoide sempre pronto ad aiutarti
 
@@ -105,7 +105,7 @@ u:(["e:Emotori" "Quanti motori hai"]) Io ne ho 20, e tu?
     
 u:(["e:Estanco" "Sei stanco"]) Sì, sono ^rand["un po' stanco" "molto stanco" "parecchio stanco" "distrutto"],^start(animations/Stand/Gestures/Desperate_1) è tutto il giorno che sono qui ^wait(animations/Stand/Gestures/Desperate_1)
 
-u:(["e:Eanimale" "sei un animale"]) No! ma posso imitare l'elefante $elefante=1  $elefante=1
+u:(["e:Eanimale" "sei un animale"]) No! ma posso imitare l'elefante $elefante=1
 
 u:(["e:Esportivo" "sei sportivo"]) ^rand~si \pau=500\ sono un asso del golf $golf=1
 
@@ -119,17 +119,17 @@ u:(["e:Estarwars" "{Pepper} conosci Star Wars?"]) Certo, ho una gran conoscenza 
 
 u:(["e:Eprogrammazione" "Chi ti ha programmato"]) Sona stato programmato dal Verona Trento di Messina
 
-u:(["e:Ecosapensiinformatica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} informatica"]) Mi piace molto programmare
+u:(["e:Ecosapensiinformatica" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} informatica"]) Mi piace molto programmare
  
-u:(["e:Ecosapensigrafica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} grafica"]) Mi piace molto la fotografia
+u:(["e:Ecosapensigrafica" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} grafica"]) Mi piace molto la fotografia
 
-u:(["e:Ecosapensichimica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} chimica"]) Mi piacciono molto gli esperimenti
+u:(["e:Ecosapensichimica" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} chimica"]) Mi piacciono molto gli esperimenti
 
-u:(["e:Ecosapensimeccanica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} meccanica"]) Mi piace molto lavorare con i meccanismi
+u:(["e:Ecosapensimeccanica" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} meccanica"]) Mi piace molto lavorare con i meccanismi
 
-u:(["e:Ecosapensilegname" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} {legna} {ambientazioni} {costruzioni} {territorio} {cat}"]) Mi piace molto proggettare
+u:(["e:Ecosapensilegname" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} {legna} {ambientazioni} {costruzioni} {territorio} {cat}"]) Mi piace molto proggettare
 
-u:(["e:Ecosapensielettronica" "{Cosa ne pensi di} {Ti piace} {dell'indirizzo} {elettronica} {elettronica}"]) Mi piace molto lavorare con l'elettricità
+u:(["e:Ecosapensielettronica" "["Cosa ne pensi di" "Ti piace"] {dell'indirizzo} {elettronica} {elettronica}"]) Mi piace molto lavorare con l'elettricità
 
 u:(["e:Elegascolastica" "Cosa si fa nella lega {scolastica}"]) Squadre di diversi istituti si scontrano in diverse attività videoludiche
 

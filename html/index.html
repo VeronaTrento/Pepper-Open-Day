@@ -150,6 +150,11 @@
                     showOnly("selfie");
                 });
             });
+            this.memory.subscriber("selfie").then(function (subscriber) {
+                subscriber.signal.connect(function (state) {
+                    showOnly("messages");
+                });
+            });
         }
 
         function raiseEvent(event) {
@@ -184,9 +189,9 @@
 
 <div id="startup" class="centered sub-content">
     <h1>Ciao, sono Pepper</h1>
-    <h1>Ti dò il benvenuto al Verona Trento!</h1>
+    <h1>Benvenuto al Verona Trento!</h1>
     <div id="startup-button">
-        <button id="button-startup" class="button-startup right" role="button" onclick="start();"><span id="startup-button-text">Iniziamo?</span></button>
+        <button id="button-startup" class="button-startup right" role="button" onclick="start();"><span id="startup-button-text">Clicca qui!</span></button>
     </div>
 
 </div>

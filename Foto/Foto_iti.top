@@ -9,7 +9,8 @@ language: iti
 
 # Replying to speech
 #u:(~hello) ~hello
-u:(["si" "ok" "scattata" "fatto" "certo"]) siamo rimasti benissimo!$nascondiselfie=1 $si=1
+u:(["si" "ok" "scattata" "fatto" "certo"]) siamo venuti benissimo!$nascondiselfie=1 $si=1
 u:(no) ^mode(disabled) allora aspetto ancora un po $no=1 ^mode(enabled)
 u:(e:onStart) ^mode(disabled) hai scattato la foto?
 u:(e:Dialog/NoOneSpeak15) ^mode(disabled) hai scattato la foto?
+u:(e:Dialog/NoOneSpeak30) ^mode(disabled) siamo venuti benissimo!

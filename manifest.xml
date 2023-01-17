@@ -4,17 +4,18 @@
   <name lang="en_US">VTOpenDay2</name>
  </names>
  <supportedLanguages>
-  <language>en_US</language>
   <language>it_IT</language>
  </supportedLanguages>
  <descriptionLanguages>
-  <language>en_US</language>
   <language>it_IT</language>
  </descriptionLanguages>
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
+   <triggerSentences/>
+   <loadingResponses/>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
